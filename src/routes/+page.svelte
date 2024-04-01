@@ -1,3 +1,11 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-<button class="btn btn-primary">Hello daisyUI</button>
+<script>
+	import Article from '../components/article.svelte';
+</script>
+
+<div class="root flex flex-col">
+    <div id="posts" class="flex items-center flex-col justify-center w-fit h-fit mx-auto">
+        <Article />
+        <Article />
+    </div>
+</div>
+
