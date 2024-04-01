@@ -5,9 +5,13 @@
 	import { page } from '$app/stores';
 </script>
 
-<Header logoSrc="/favicon.png">
-	<HeaderLink href="/about" text="About" active={$page.url.pathname.includes('/about')} />
-	<HeaderLink href="/blog" text="Blog" active={$page.url.pathname.includes('/blog')} />
-	<HeaderLink href="/tags" text="Tags" active={$page.url.pathname.includes('/tags')} />
-</Header>
-<slot />
+<div class="flex flex-col h-screen">
+	<Header logoSrc="/favicon.png">
+		<HeaderLink href="/about" text="About" active={$page.url.pathname.includes('/about')} />
+		<HeaderLink href="/blog" text="Blog" active={$page.url.pathname.includes('/blog')} />
+		<HeaderLink href="/tags" text="Tags" active={$page.url.pathname.includes('/tags')} />
+	</Header>
+  <div class="flex justify-center items-center my-5">
+	<slot />
+  </div>
+</div>
