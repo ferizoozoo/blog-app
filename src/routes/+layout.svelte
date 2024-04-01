@@ -5,7 +5,7 @@
 	import { page } from '$app/stores';
 </script>
 
-<div class="flex flex-col h-screen">
+<div class="h-fit">
 	<Header logoSrc="/favicon.png">
 		<HeaderLink href="/about" text="About" active={$page.url.pathname.includes('/about')} />
 		<HeaderLink href="/blog" text="Blog" active={$page.url.pathname.includes('/blog')} />

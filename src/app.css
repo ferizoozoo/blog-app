@@ -6,3 +6,8 @@
     --accent-color: #414040;
     --primary-color: black;
 }
+
+body {
+    height: 100vh;
+    background-color: #f9f9f9;
+}
