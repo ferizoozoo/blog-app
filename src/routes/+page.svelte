@@ -1,6 +1,8 @@
-<script>
+<script lang="ts">
 	import Card from '../components/card.svelte';
 	import Post from '../components/post.svelte';
+	import Tags from '../components/tags.svelte';
+	import type { Tag } from '../components/types'
 
 	const posts = [{
 		text: `React 18 introduces several exciting features like concurrent rendering, new hooks, and more. In
@@ -24,7 +26,7 @@
                 projects...`,
 		title: 'Exploring the New Features of React 18',
 		date: 'April 5, 2023',
-		image: 'AB',
+		image: 'https://images.shiksha.com/mediadata/ugcDocuments/images/wordpressImages/2020_08_Trending-Technologies-scaled.jpg',
 		author: 'Alex Brown'
     }, {
         text: `React 18 introduces several exciting features like concurrent rendering, new hooks, and more. In
@@ -32,7 +34,7 @@
                 projects...`,
 		title: 'Exploring the New Features of React 18',
 		date: 'April 5, 2023',
-		image: 'AB',
+		image: 'https://deeptechstartups.in/wp-content/uploads/2022/09/Deep-Tech-1.jpg',
 		author: 'Alex Brown'
     }, {
         text: `React 18 introduces several exciting features like concurrent rendering, new hooks, and more. In
@@ -40,17 +42,33 @@
                 projects...`,
 		title: 'Exploring the New Features of React 18',
 		date: 'April 5, 2023',
-		image: 'AB',
+		image: 'https://images.shiksha.com/mediadata/ugcDocuments/images/wordpressImages/2020_08_Trending-Technologies-scaled.jpg',
 		author: 'Alex Brown'
     }];
+
+
+
+	const tags: Tag[] = [
+        {
+            name: "Go",
+            count: 4
+        },
+        {
+            name: "C",
+            count: 128
+        }
+      ]
 </script>
 
-<div class="flex flex-col py-2">
+<div class="flex flex-col md:flex-row py-2">
 	<div id="posts" class="flex items-center flex-col justify-center">
 		{#each posts as post, i}
         <Card>
 			<Post post={post} index={i} />
 		</Card>
 		{/each}
+	</div>
+	<div class="hidden md:visible">
+		<Tags {tags} />
 	</div>
 </div>
