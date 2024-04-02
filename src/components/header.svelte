@@ -10,10 +10,10 @@
 
     onMount(() => {
         window.addEventListener('scroll', handleScroll)
-    })
 
-    onDestroy(() => {
-        window.removeEventListener('scroll', handleScroll)
+		return () => {
+			window.removeEventListener('scroll', handleScroll)
+		}
     })
 </script>
 
