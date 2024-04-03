@@ -5,6 +5,7 @@
 	import { page } from '$app/stores';
 </script>
 
+
 <div class="h-fit">
 	<Header logoSrc="/favicon.png">
 		<HeaderLink href="/about" text="About" active={$page.url.pathname.includes('/about')} />
@@ -12,7 +13,7 @@
 		<HeaderLink href="/tags" text="Tags" active={$page.url.pathname.includes('/tags')} responsive={true} />
 		<HeaderLink href="/stories" text="Stories" active={$page.url.pathname.includes('/stories')} responsive={true} />
 	</Header>
-  <div class="flex justify-center items-center my-5">
-	<slot />
-  </div>
+	<div class="flex justify-center items-center my-5">
+		<slot />
+	</div>
 </div>

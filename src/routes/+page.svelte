@@ -2,73 +2,83 @@
 	import Card from '../components/card.svelte';
 	import Post from '../components/post.svelte';
 	import Tags from '../components/tags.svelte';
-	import type { Tag } from '../components/types'
+	import type { Tag } from '../components/types';
 
-	const posts = [{
-		text: `React 18 introduces several exciting features like concurrent rendering, new hooks, and more. In
+	const posts = [
+		{
+			text: `React 18 introduces several exciting features like concurrent rendering, new hooks, and more. In
                 this post, we'll dive into what's new and how you can leverage these features in your
                 projects...`,
-		title: 'Exploring the New Features of React 18',
-		date: 'April 5, 2023',
-		image: 'https://images.shiksha.com/mediadata/ugcDocuments/images/wordpressImages/2020_08_Trending-Technologies-scaled.jpg',
-		author: 'Alex Brown'
-    }, {
-        text: `React 18 introduces several exciting features like concurrent rendering, new hooks, and more. In
+			title: 'Exploring the New Features of React 18',
+			date: 'April 5, 2023',
+			image:
+				'https://images.shiksha.com/mediadata/ugcDocuments/images/wordpressImages/2020_08_Trending-Technologies-scaled.jpg',
+			author: 'Alex Brown'
+		},
+		{
+			text: `React 18 introduces several exciting features like concurrent rendering, new hooks, and more. In
                 this post, we'll dive into what's new and how you can leverage these features in your
                 projects...`,
-		title: 'Exploring the New Features of React 18',
-		date: 'April 5, 2023',
-		image: 'https://deeptechstartups.in/wp-content/uploads/2022/09/Deep-Tech-1.jpg',
-		author: 'Alex Brown'
-    }, {
-        text: `React 18 introduces several exciting features like concurrent rendering, new hooks, and more. In
+			title: 'Exploring the New Features of React 18',
+			date: 'April 5, 2023',
+			image: 'https://deeptechstartups.in/wp-content/uploads/2022/09/Deep-Tech-1.jpg',
+			author: 'Alex Brown'
+		},
+		{
+			text: `React 18 introduces several exciting features like concurrent rendering, new hooks, and more. In
                 this post, we'll dive into what's new and how you can leverage these features in your
                 projects...`,
-		title: 'Exploring the New Features of React 18',
-		date: 'April 5, 2023',
-		image: 'https://images.shiksha.com/mediadata/ugcDocuments/images/wordpressImages/2020_08_Trending-Technologies-scaled.jpg',
-		author: 'Alex Brown'
-    }, {
-        text: `React 18 introduces several exciting features like concurrent rendering, new hooks, and more. In
+			title: 'Exploring the New Features of React 18',
+			date: 'April 5, 2023',
+			image:
+				'https://images.shiksha.com/mediadata/ugcDocuments/images/wordpressImages/2020_08_Trending-Technologies-scaled.jpg',
+			author: 'Alex Brown'
+		},
+		{
+			text: `React 18 introduces several exciting features like concurrent rendering, new hooks, and more. In
                 this post, we'll dive into what's new and how you can leverage these features in your
                 projects...`,
-		title: 'Exploring the New Features of React 18',
-		date: 'April 5, 2023',
-		image: 'https://deeptechstartups.in/wp-content/uploads/2022/09/Deep-Tech-1.jpg',
-		author: 'Alex Brown'
-    }, {
-        text: `React 18 introduces several exciting features like concurrent rendering, new hooks, and more. In
+			title: 'Exploring the New Features of React 18',
+			date: 'April 5, 2023',
+			image: 'https://deeptechstartups.in/wp-content/uploads/2022/09/Deep-Tech-1.jpg',
+			author: 'Alex Brown'
+		},
+		{
+			text: `React 18 introduces several exciting features like concurrent rendering, new hooks, and more. In
                 this post, we'll dive into what's new and how you can leverage these features in your
                 projects...`,
-		title: 'Exploring the New Features of React 18',
-		date: 'April 5, 2023',
-		image: 'https://images.shiksha.com/mediadata/ugcDocuments/images/wordpressImages/2020_08_Trending-Technologies-scaled.jpg',
-		author: 'Alex Brown'
-    }];
-
-
+			title: 'Exploring the New Features of React 18',
+			date: 'April 5, 2023',
+			image:
+				'https://images.shiksha.com/mediadata/ugcDocuments/images/wordpressImages/2020_08_Trending-Technologies-scaled.jpg',
+			author: 'Alex Brown'
+		}
+	];
 
 	const tags: Tag[] = [
-        {
-            name: "Go",
-            count: 4
-        },
-        {
-            name: "C",
-            count: 128
-        }
-      ]
+		{
+			name: 'Go',
+			count: 4
+		},
+		{
+			name: 'C',
+			count: 128
+		}
+	];
 </script>
 
-<div class="flex flex-col md:flex-row py-2">
-	<div id="posts" class="flex items-center flex-col justify-center">
+<div class="scrollable flex flex-col md:flex-row py-2 md:gap-6">
+	<div id="posts" class="flex items-center flex-col justify-center flex-4">
 		{#each posts as post, i}
-        <Card>
-			<Post post={post} index={i} />
-		</Card>
+			<Card>
+				<Post {post} index={i} />
+			</Card>
 		{/each}
 	</div>
-	<div class="hidden md:visible">
-		<Tags {tags} />
+
+	<div class="flex-1 hidden md:block">
+		<Card shadowDisabled={true}>
+			<Tags {tags} />
+		</Card>
 	</div>
 </div>
