@@ -10,3 +10,7 @@ export interface Tag {
     name: string;
     count: number;
 }
+
+export interface Serie {
+    name: string
+}

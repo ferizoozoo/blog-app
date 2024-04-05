@@ -1,8 +1,9 @@
 <script lang="ts">
 	import Card from '../components/card.svelte';
 	import Post from '../components/post.svelte';
+	import Series from '../components/series.svelte';
 	import Tags from '../components/tags.svelte';
-	import type { Tag } from '../components/types';
+	import type { Tag, Serie } from '../components/types';
 
 	const posts = [
 		{
@@ -65,6 +66,15 @@
 			count: 128
 		}
 	];
+
+	const series: Serie[] = [
+		{
+			name: 'Go',
+		},
+		{
+			name: 'C',
+		}
+	];
 </script>
 
 <div class="scrollable flex flex-col md:flex-row py-2 md:gap-6">
@@ -79,6 +89,9 @@
 	<div class="flex-1 hidden md:block">
 		<Card shadowDisabled={true}>
 			<Tags {tags} />
+		</Card>
+		<Card shadowDisabled={true}>
+			<Series {series} />
 		</Card>
 	</div>
 </div>
