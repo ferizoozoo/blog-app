@@ -1,31 +1,40 @@
 <script lang="ts">
+	import { afterUpdate, createEventDispatcher } from 'svelte';
+	
 	export let name = 'hello';
-	let isOpen = false;
+	export let isOpen = false;
 	let result: string[] = [];
-
+	
+	const dispatcher = createEventDispatcher();
+	
+	// TODO: make an HTTP Request
 	const handleToggle = async (name: string) => {
-		return new Promise<string[]>((resolve, reject) => {
+		return new Promise<string[]>((resolve) => {
 			if (result.length === 0) {
 				setTimeout(() => {
-					result.push('hello1', 'hello2', 'hello3');
-                    resolve(result)
+					result.push(name + ' #1', name + ' #2', name + ' #3');
+					resolve(result);
 				}, 2000);
 			} else {
-                resolve(result)
-            }
+				resolve(result);
+			}
 		});
 	};
+
+	afterUpdate(() => {
+		if (isOpen){
+			dispatcher("opened", {name: name, open: isOpen})
+		}
+	})
+
 </script>
 
 <details
-	on:toggle={() => {
-		isOpen = !isOpen;
-	}}
-    bind:open={isOpen}
+	bind:open={isOpen}
 	class="group w-full rounded-md bg-gray-50 px-3 py-1"
 >
 	<summary
-		class="w-full rounded-md px-3 py-1 group-open:border-b-2 group-open:border-gray-200 group-open:bg-gray-100"
+		class="w-full rounded-md px-3 py-1 group-open:border-b-2 group-open:border-gray-200 group-open:bg-gray-100 hover:cursor-pointer"
 		>{name}</summary
 	>
 	<div class="w-full justify-around flex flex-col gap-4">
@@ -48,15 +57,15 @@
 					</ul>
 				</div>
 			{:then headers}
-				<ol>
+				<ul>
 					{#each headers as header, idx}
-						<li>
-							{idx + 1}- <a href="#" class="text-2xl underline underline-offset-8">{header}</a>
+						<li class="my-1">
+							{idx + 1}- <a href="/blog/{header}" class="text-gl underline underline-offset-4">{header}</a>
 						</li>
 					{/each}
-				</ol>
+				</ul>
 			{:catch someError}
-                {console.log(someError)}
+				{console.log(someError)}
 				<p>{someError.message}</p>
 			{/await}
 		{/if}

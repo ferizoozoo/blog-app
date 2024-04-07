@@ -1,31 +1,21 @@
 <script lang="ts">
 	import Serie from './serie.svelte';
 	import type { Serie as SerieInfo } from './types';
+	export let series: SerieInfo[] = [
+		{name: "Test"},
+		{name: "test 2"}
+	]
 
-	let seriesHeaders: string[] = [];
+	let currnetlyOpen = "";
 
-	export const series: SerieInfo[] = [
-		{
-			name: 'Go'
-		},
-		{
-			name: 'C'
-		}
-	];
-	
-	let currentIdx = -1;
-	const handleToggle = (e: any, idx: number) => {
-		console.log(e)
-		if (currentIdx === idx) {
-			return
-		}
-		currentIdx = idx;
-	}
+	function OpenHndler(e: CustomEvent) {
+		currnetlyOpen = e.detail.name
+	} 
 </script>
 
-<div class="w-full justify-around flex flex-col gap-4">
-	{#each series as serie, idx}
-		<Serie name={serie.name} />
+<div class="w-full justify-around flex flex-col gap-4 ">
+	{#each series as serie}
+		<Serie on:opened={OpenHndler} name={serie.name} isOpen={serie.name === currnetlyOpen}/>
 	{/each}
 </div>
 

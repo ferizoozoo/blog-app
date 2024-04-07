@@ -3,7 +3,7 @@
 	import Post from '../components/post.svelte';
 	import Series from '../components/series.svelte';
 	import Tags from '../components/tags.svelte';
-	import type { Tag, Serie } from '../components/types';
+	import type { Serie, Tag } from '../components/types';
 
 	const posts = [
 		{
@@ -64,15 +64,30 @@
 		{
 			name: 'C',
 			count: 128
+		},
+		{
+			name: "Svelte",
+			count: 1024
+		},
+		{
+			name: "Typescript",
+			count: 10
+		},
+		{
+			name: "TailwindCSS",
+			count: 1024
 		}
 	];
 
 	const series: Serie[] = [
 		{
-			name: 'Go',
+			name: 'Go'
 		},
 		{
-			name: 'C',
+			name: 'C'
+		},
+		{
+			name: 'Linux'
 		}
 	];
 </script>
