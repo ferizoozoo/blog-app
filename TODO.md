@@ -1,4 +1,4 @@
-- [ ] responsive posts
+- [X] responsive posts
 - [ ] api calls to dev.to, github, ...
-- [ ] post series, tags
+- [X] post series, tags
 - [ ] blog post page (for a single post)
