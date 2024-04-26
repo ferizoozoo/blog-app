@@ -10,7 +10,7 @@
 			<div
 				class="flex flex-row justify-between bg-gray-100  hover:bg-gray-200 m-1 py-1 px-4 rounded-3xl"
 			>
-				<span class="text-bold">#{tag.name}</span>
+				<span class="text-bold px-2">#{tag.name}</span>
 				<span >{tag.count} </span>
 			</div>
 		</a>

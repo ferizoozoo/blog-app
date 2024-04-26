@@ -1,11 +1,14 @@
 <script lang="ts">
+	import Card from "./card.svelte";
 	import type { Post } from "./types";
 
     export let post: Post;
     export let index: number;
+    export let summarize = true;
     let slug = post.title.replaceAll(' ', '-').toLowerCase();
 </script>
 
+{#if summarize}
 <div class="mb-4 flex flex-col md:flex-row {index % 2 === 0 ? 'md:flex-row-reverse' : ''} items-center space-x-4">
     <div class="w-full md:w-1/3 h-48 md:h-auto overflow-hidden relative">
         <img src={post.image} alt={post.title} class="pb-2 md:pb-0 absolute top-0 left-0 object-cover w-full h-full rounded-md md:relative md:static" />
@@ -22,4 +25,47 @@
         </div>
     </div>
 </div>
+{:else}
+    <h1>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet voluptas est tenetur maiores
+        tempora, nostrum cumque nihil nobis ipsa neque aliquam maxime laudantium deleniti a, enim
+        dolor et. In, fugiat!
+    </h1>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet voluptas est tenetur maiores
+        tempora, nostrum cumque nihil nobis ipsa neque aliquam maxime laudantium deleniti a, enim
+        dolor et. In, fugiat!
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet voluptas est tenetur maiores
+        tempora, nostrum cumque nihil nobis ipsa neque aliquam maxime laudantium deleniti a, enim
+        dolor et. In, fugiat!
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet voluptas est tenetur maiores
+        tempora, nostrum cumque nihil nobis ipsa neque aliquam maxime laudantium deleniti a, enim
+        dolor et. In, fugiat!
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet voluptas est tenetur maiores
+        tempora, nostrum cumque nihil nobis ipsa neque aliquam maxime laudantium deleniti a, enim
+        dolor et. In, fugiat!
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet voluptas est tenetur maiores
+        tempora, nostrum cumque nihil nobis ipsa neque aliquam maxime laudantium deleniti a, enim
+        dolor et. In, fugiat!
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet voluptas est tenetur maiores
+        tempora, nostrum cumque nihil nobis ipsa neque aliquam maxime laudantium deleniti a, enim
+        dolor et. In, fugiat!
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet voluptas est tenetur maiores
+        tempora, nostrum cumque nihil nobis ipsa neque aliquam maxime laudantium deleniti a, enim
+        dolor et. In, fugiat!
+    </p>
+{/if}
+
 
